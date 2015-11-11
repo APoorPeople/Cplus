@@ -1,0 +1,35 @@
+#include<iostream.h>
+#include<string.h>
+class Student
+{
+private:
+	char name[10];
+	double score;
+public:
+	static int count;
+	static double total;
+	Student(char *pName,double s)
+	{
+		strcpy(name,pName);
+		score=s;
+		total+=s;
+		count++;
+	}
+	~Student()
+	{count--;total-=score;}//////////////////////////////////////////////////////
+};
+int Student::count=0;
+double Student::total=0;
+void main()
+{
+	Student s1("zs",95),s2("ls",89.2);
+	cout<<Student::total/Student.count<<endl;
+	cout<<Student::count<<endl;
+	{
+		Student s3("wlw",60),s4("mm",59.5);
+		cout<<Student::total/Student.count<<endl;
+		cout<<Student::count<<endl;
+	}
+	cout<<Student::total/Student.count<<endl;
+	cout<<Student::count<<endl;
+}
