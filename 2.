@@ -1,0 +1,37 @@
+#include<iostream.h>
+//定义math类，添加静态数据成员PI和成员函数abs，pow，fact，并编写程序测试
+class Math
+{	
+public:
+	static double PI;	
+
+public:
+	double Abs(double x)
+	{return x>0?x:-x;}
+	double Pow(double x,int n)//求乘方
+	{
+		double res=1;
+		for(int i=0;i<n;i++)
+			res*=x;
+		return res;
+	}
+	//问题可分解（子问题规模小于问题的规模）
+	//子问题的求解方法与问题的求解方法相同
+	//必须有明确的结束条件
+	long Fact(int n)//求阶乘
+	{
+		if(n<=1)
+			return 1;
+		else
+			return n*Fact(n-1);
+	}
+};
+double Math::PI=3.1415926;//在类外部定义
+void main()
+{
+	Math m1,m2;
+	cout<<m1.Pow(2.5,2)<<endl;
+	cout<<m2.Fact(5)<<endl;
+	cout<<m1.PI*2*3.5<<endl;
+	cout<<Math::PI*2*5.1<<endl;
+}
